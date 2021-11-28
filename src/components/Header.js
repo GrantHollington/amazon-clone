@@ -1,4 +1,6 @@
 import './Header.css'
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 const Header = () => {
     return (
@@ -6,7 +8,7 @@ const Header = () => {
             <img className="header__logo" src="https://www.themarysue.com/wp-content/uploads/2019/07/amazon-frown.jpg" alt="amazon frown logo" />
             <div className="header__search">
                 <input type="text" className="header__searchInput"/>
-            {/* Logo */}
+                <SearchIcon className="header__searchIcon" />
             </div>
 
             <div className="header__nav">
@@ -24,6 +26,11 @@ const Header = () => {
                     <span className="header__optionLineOne">Your</span>
                     <span className="header__optionLineTwo">Prime</span>
                 </div>
+            </div>
+
+            <div className="header__optionBasket">
+                <ShoppingBasketIcon />
+                <span className="header__basketCount header__optionLineTwo">0</span>
             </div>
 
         </div>
