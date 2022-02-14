@@ -27,11 +27,11 @@
     color: #111;
 }
 
-.product_info {
+.product__info {
     height: 100px;
     margin-bottom: 15px;
 }
 
-.product_price {
+.product__price {
     margin-bottom: 5px;
 }

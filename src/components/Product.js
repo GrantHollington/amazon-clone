@@ -6,11 +6,11 @@ function Product() {
         <div className="product">
             <div className="product__info">
                 <p>The lean startup</p>
-                <p className="product_price">
+                <p className="product__price">
                     <small>$</small>
                     <strong>19.99</strong>
                 </p>
-                <div className="product_rating">
+                <div className="product__rating">
                     <p>⭐️</p>
                     <p>⭐️</p>
                     <p>⭐️</p>
