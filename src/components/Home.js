@@ -9,7 +9,7 @@ export default function Home() {
                 <img className="home__image" src="https://m.media-amazon.com/images/I/61Q6BYGdNxL._SX3000_.jpg" alt="Cyber deals" />
 
                 <div className="home__row">
-                    <Product />
+                    <Product title='The lean startup' price={29.99} image="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394265182l/12969026.jpg" rating={5}/>
                     <Product />
                 </div>
 
