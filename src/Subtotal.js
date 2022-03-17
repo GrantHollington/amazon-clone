@@ -21,7 +21,7 @@ export default function Subtotal() {
                 </>
             )}
             decimalScale={2}
-            value={getBasketTotal(basket)}
+            value={getBasketTotal(basket)} 
             displayType={"text"}
             thousandSeparator={true}
             prefix={"$"}

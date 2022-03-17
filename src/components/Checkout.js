@@ -10,10 +10,10 @@ export default function Checkout() {
             <div>
                 <h2 className="checkout__title">Your Shopping Basket</h2>
 
-                {/* Basket Item*/}
-                {/* Basket Item*/}
-                {/* Basket Item*/}
-                {/* Basket Item*/}
+                {/* CheckoutProduct*/}
+                {/* CheckoutProduct*/}
+                {/* CheckoutProduct*/}
+                {/* CheckoutProduct*/}
             </div>
         </div>
         <div className="checkout__right">
