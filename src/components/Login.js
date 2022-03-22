@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './Login.css'
 
 
 function Login() {
+    // useNavigate replaces useHistory
+    const navigate = useNavigate();
     // useState for email and password. useState is like variables in react
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,6 +23,17 @@ function Login() {
         e.preventDefault();
 
         // do some fancy firebase regster stuff here
+       
+            // creating a new email and password
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((auth) => {
+                // this means it sucessfully created a new user
+                console.log(auth);
+                if (auth) {
+                    navigate('/')
+                }
+            })
+            .catch(error => alert(error.message))
     }
 
   return (
