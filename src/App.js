@@ -4,9 +4,36 @@ import Home from './components/Home';
 import Checkout from './components/Checkout';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './components/Login';
+import { useEffect } from 'react';
+import { auth } from './firebase'
+import { useStateValue} from "./StateProvider"
 //replaced switch with routes for react-router-dom v6
 
 function App() {
+  const [{}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    // will only run once when the app component loads
+
+    auth.onAuthStateChanged(authUser => {
+      console.log('THE USER IS >>> ', authUser);
+
+      if (authUser) {
+        // the user just logged in / the user was logged in
+        dispatch({
+          type: 'SET_USER',
+          user: authUser
+        })
+      } else {
+        // the user is logged out
+        dispatch({
+          type: 'SET_USER',
+          user: null
+        })
+      }
+    })
+   }, [])
+
   return (
     // BEM styling convention
     <Router>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import './Login.css'
 
-
 function Login() {
-    // useNavigate replaces useHistory
+    // useNavigate replaces useHistory in react-router-dom v6
     const navigate = useNavigate();
     // useState for email and password. useState is like variables in react
     const [email, setEmail] = useState('');
@@ -16,24 +15,32 @@ function Login() {
         // this prevents react from reloading page
         e.preventDefault();
 
-        // do some fancy firebase login tuff here
+        signInWithEmailAndPassword(auth, email, password)
+            .then((auth) => {
+              console.log(auth);
+              if (auth) {
+                  navigate('/')
+              }
+            })
+            .then(navigate('/'))
+            .catch(error => alert(error.message)) 
+            
+
     }
 
     const register = e => {
         e.preventDefault();
-
-        // do some fancy firebase regster stuff here
        
             // creating a new email and password
             createUserWithEmailAndPassword(auth, email, password)
-            .then((auth) => {
-                // this means it sucessfully created a new user
-                console.log(auth);
-                if (auth) {
-                    navigate('/')
-                }
-            })
-            .catch(error => alert(error.message))
+                .then((auth) => {
+                    // this means it sucessfully created a new user
+                    console.log(auth);
+                    if (auth) {
+                        navigate('/')
+                    }
+                })
+                .catch(error => alert(error.message))
     }
 
   return (
